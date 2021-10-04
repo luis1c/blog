@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= display_meta_tags site: 'Blog - Luís Carlos' %>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= favicon_link_tag asset_path('/icons/favicon.ico') %>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WL3T0055GJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WL3T0055GJ');
+    </script>
+  </head>
+
+  <body>
+    <%= javascript_pack_tag 'turbolinks_audio_stop' %>
+    
+    <!-- Menu button -->
+    <div class="mobile-lateral-menu">
+      <button class="navbar-toggler">
+        <%= image_tag 'programming' %>
+      </button>
+    </div>
+    
+    <div class="row application_row">
+      <div class="col-md-3">
+        <%= render 'shared/lateral_menu' %>
+      </div>
+
+      <div class="col-md-9">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
