@@ -11,6 +11,8 @@ class Post < ApplicationRecord
 
     validates_presence_of :title, :content
 
+    paginates_per 3
+    
     def banner_photo
         if self.banner.attached?
             self.banner
