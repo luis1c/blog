@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
 
   def new
     authorize! :create, current_user
@@ -34,6 +35,16 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
+  end
+
+  def destroy
+    authorize! :delete, current_user
+
+    if @post.delete
+      redirect_to blog_index_path, notice: 'Post deletado com sucesso!'
+    else
+      redirect_to blog_index_path, alert: 'Erro ao deletar post. Tente novamente mais tarde!'
+    end
   end
 
   private

@@ -21,6 +21,14 @@
         <div class="see_more">
           <%= link_to 'Ver Mais', post_path(post), class: 'btn btn-danger me-3' %>
         </div>
+
+        <div class="see_more">
+          <%= link_to 'Excluir', post_path(post), method: :delete, class: 'btn btn-danger me-3' %>
+        </div>
+
+        <div class="see_more">
+          <%= link_to 'Editar', edit_post_path(post), class: 'btn btn-danger me-3' %>
+        </div>
       </div>
     <% end %>
   </div>
