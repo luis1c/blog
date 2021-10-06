@@ -1,9 +1,3 @@
-<% set_meta_tags title: "#{@post.title}",
-    description: "#{@post.content.to_plain_text}",
-    type:     'article',
-    url:      "https://lucas-dev.com/posts/#{@post.slug}",
-    image:    "https://lucas-dev.com/#{url_for(@post.banner_photo)}" %>
-
 <div class="container mt-4">
     <div class="post_content">
         <div class="float-start go_back">
