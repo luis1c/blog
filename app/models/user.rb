@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   enum role: [:admin, :normal]
 
+  # def permission
+  #  self.admin?
+  # end
+
   def perfil_photo
     if self.avatar.attached?
         self.avatar
