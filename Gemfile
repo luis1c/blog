@@ -36,7 +36,7 @@ gem 'cancancan'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 
-gem 'pg'
+gem 'pg', '~> 0.18.4',  group: :production
 
 # Use postgresql as the database for Active Record
 #group :production do
