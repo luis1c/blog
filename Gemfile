@@ -36,15 +36,12 @@ gem 'cancancan'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 
-# Use sqlite3 as the database for Active Record
-group :development, :test do
-  gem 'sqlite3'
-end
+gem 'pg'
 
 # Use postgresql as the database for Active Record
-group :production do
-  gem 'pg', '0.20.0'
-end
+#group :production do
+#  gem 'pg'
+#end
 
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
@@ -72,6 +69,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'sqlite3'
 end
 
 group :development do
