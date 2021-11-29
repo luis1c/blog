@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:new, :create, :show, :update]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
 
@@ -34,7 +34,17 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new
+    #if user_signed_in?
+      @comment = Comment.new
+    #else
+    #  @comment = Comment.new
+
+    #  if @comment.save!
+    #    redirect_to request.referrer, notice: 'Comentário anônimo realizado com sucesso!'
+    #  else
+    #    redirect_to request.referrer, alert: 'Erro ao realizar comentário anônimo! Tente novamente mais tarde.'
+    #  end
+    #end
   end
 
   def destroy
