@@ -28,7 +28,7 @@ gem "aws-sdk-s3"
 gem 'dotenv-rails'
 
 # Authorization
-#gem 'cancancan'
+gem 'cancancan'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'

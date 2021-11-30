@@ -2,20 +2,23 @@
 
   <div class="row">
     <div class="col-10">
-      <div class="field">
-        <%= f.text_field :name, placeholder: 'Digite seu nome!*', class: 'form-control', required: true %>
-      </div>
+      <% if  user_signed_in? %>
+        <div class="field">
+          <%= f.text_field :name, value: current_user.name, class: 'form-control', disabled: true %>
+        </div>
 
-      <div class="field mt-3">
-        <%= f.email_field :email, placeholder: 'Deixe seu email!*', class: 'form-control', required: true %>
-      </div>
-
-      <div class="field mt-3">
-        <%= f.rich_text_area :content, placeholder: 'Deixe seu comentário!*', class: 'form-control', required: true %>
-      </div>
+        <div class="field mt-3">
+          <%= f.email_field :email, value: current_user.email, class: 'form-control', disabled: true %>
+        </div>
+      <% else %>
+      <%= f.hidden_field :name, value: "Anônimo" %>
+      <%= f.hidden_field :email, value: "anonimo@anonimo@gmail.com" %>
+    <% end %>
+    <div class="field mt-3">
+      <%= f.rich_text_area :content, placeholder: 'Deixe seu comentário!*', class: 'form-control', required: true %>
     </div>
-
-    <div class="col-2 send_comment_button">
+  </div>
+  <div class="col-2 send_comment_button">
       <%= f.submit 'Enviar', class: 'btn btn-danger' %>
     </div>
   </div>

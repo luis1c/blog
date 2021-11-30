@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
+    skip_before_action :authenticate_user!, only: [:create]
     before_action :set_post, only: [:create]
     
     def index
     end
 
     def create
+        #binding.pry
         @comment = Comment.new(comment_params)
 
         @comment.commentable = @post
